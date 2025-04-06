@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Поздравление с Днём Рождения</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div class="music-controls">
+    <button id="playButton" class="music-btn">▶</button>
+    <button id="pauseButton" class="music-btn">⏸</button>
+    <button id="volumeDown" class="music-btn">🔉</button>
+    <button id="volumeUp" class="music-btn">🔊</button>
+  </div>
+  <div id="musicNotification" class="music-notification">
+    <p>Включить музыку?</p>
+    <button id="enableMusic">Включить</button>
+  </div>
+  <audio id="bgMusic" loop>
+    <source src="music.mp3" type="audio/mp3">
+  </audio>
+
+  <div class="side-image left-image">
+    <img src="flowers-left.png" alt="Цветы слева">
+  </div>
+
+  <div class="side-image right-image">
+    <img src="flowers-right.png" alt="Цветы справа">
+  </div>
+
+  <h1>С Днём Рождения! Пусть каждый день будет наполнен радостью и вдохновением!</h1>
+
+  <div class="images">
+    <img src="Screenshot_6.png" alt="Праздничная картинка 1" />
+    <img src="Screenshot_2.png" alt="Праздничная картинка 2" />
+    <img src="Screenshot_1.png" alt="Праздничная картинка 3" />
+  </div>
+
+  <script>
+    const music = document.getElementById('bgMusic');
+    const playBtn = document.getElementById('playButton');
+    const pauseBtn = document.getElementById('pauseButton');
+    const volumeDown = document.getElementById('volumeDown');
+    const volumeUp = document.getElementById('volumeUp');
+    const musicNotification = document.getElementById('musicNotification');
+    const enableMusicBtn = document.getElementById('enableMusic');
+    
+    music.volume = 0.3;
+    
+    enableMusicBtn.addEventListener('click', () => {
+      music.play();
+      musicNotification.style.display = 'none';
+    });
+    
+    playBtn.addEventListener('click', () => {
+      music.play();
+      musicNotification.style.display = 'none';
+    });
+    
+    pauseBtn.addEventListener('click', () => {
+      music.pause();
+    });
+    
+    volumeDown.addEventListener('click', () => {
+      if (music.volume >= 0.1) {
+        music.volume -= 0.1;
+      }
+    });
+    
+    volumeUp.addEventListener('click', () => {
+      if (music.volume <= 0.9) {
+        music.volume += 0.1;
+      }
+    });
+  </script>
+</body>
+</html>
